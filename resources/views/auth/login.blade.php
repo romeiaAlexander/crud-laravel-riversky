@@ -1,14 +1,20 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield('title', 'Login')</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-  </head>
-  <body>
-    @yield('body')
-    <h1>Hello, world!</h1>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
-  </body>
-</html>
+@extends('include.layout')
+@section('title', 'Login')
+@section('content')
+    <div class="container p-5">
+      <form class="ms-auto me-auto" style="width: 500px">
+        <div class="mb-3">
+          <label for="exampleInputUsername" class="form-label">Username</label>
+          <input type="text" class="form-control" id="exampleInputUsername">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword" class="form-label">Password</label>
+          <input type="password" class="form-control" id="exampleInputPassword">
+        </div>
+        <div class="mb-3">
+          <a href="#">Apakah anda sudah mempunyai akun?</a>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+@endsection
