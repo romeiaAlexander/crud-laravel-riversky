@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <link rel="icon" type="image/x-icon" href="{{ asset('/assets/images/logo4.png') }}">
   <title>@yield('title','Riversky')</title>
 
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css">
@@ -16,6 +16,7 @@
   <body>
     @include('include.navigasi')
     @yield('content')
+    @include('include.footer')
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{{ asset('assets/js/jquery-3.4.1.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('assets/js/bootstrap.js') }}"></script>

@@ -1,36 +1,31 @@
 @extends('include.layout')
 @section('title', 'Login')
 @section('content')
-    <div class="container">
-        <div class="signup-content">
-            <form method="POST" id="signup-form" class="signup-form">
-                <h2 class="form-title">Create account</h2>
-                <div class="form-group">
-                    <input type="text" class="form-input" name="username" id="username" placeholder="Your Username">
-                </div>
-                <div class="form-group">
-                    <input type="email" class="form-input" name="email" id="email" placeholder="Your Email">
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-input" name="password" id="password" placeholder="Password">
-                    <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
-                </div>
-                <div class="form-group">
-                    <input type="password" class="form-input" name="re_password" id="re_password"
-                        placeholder="Repeat your password">
-                </div>
-                <div class="form-group">
-                    <input type="checkbox" name="agree-term" id="agree-term" class="agree-term">
-                    <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in <a
-                            href="#" class="term-service">Terms of service</a></label>
-                </div>
-                <div class="form-group">
-                    <input type="submit" name="submit" id="submit" class="form-submit" value="Sign up">
-                </div>
-            </form>
-            <p class="loginhere">
-                Have already an account ? <a href="index.php?river=login" class="loginhere-link">Login here</a>
-            </p>
+<link rel="stylesheet" href="{{ asset('assets/css/style2.css') }}">
+<div class="container">
+    <div class="">
+        <div class="header">
+            <p>Registeration for Riversky</p>
         </div>
+        <form action="" method="post">
+            <div class="input-box">
+                <label for="Username">Username</label>
+                <input type="text" class="input-field" name="username" id="username" placeholder="username" required>
+                <i class="bx bx-envelope"></i>
+            </div>
+            <div class="input-box">
+                <label for="Email">Email address</label>
+                <input type="email" class="input-field" name="email" id="email" placeholder="name@gmail.com" required>
+            </div>
+            <div class="input-box">
+                <label for="Password">Password</label>
+                <input type="password" class="input-field" name="password" id="password" placeholder="password" required>
+                <i class="bx bx-lock"></i>
+            </div>
+            <div class="input-box">
+                <input type="submit" name="submit" class="input-submit" value="Login">
+            </div>
+        </form>
     </div>
+</div>
 @endsection
