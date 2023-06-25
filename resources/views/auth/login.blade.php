@@ -8,15 +8,16 @@
             <header><img src="{{ asset('/assets/images/logo4.png') }}" alt="logo"></header>
             <p>Welcome to Riversky</p>
         </div>
-        <form action="" method="post">
+        <form action="{{route('login.post')}}" method="POST">
+            @csrf
             <div class="input-box">
                 <label for="Username">Username</label>
-                <input type="text" class="input-field" name="username" id="username" required>
+                <input type="text" class="input-field" name="username" id="username">
                 <i class="bx bx-envelope"></i>
             </div>
             <div class="input-box">
                 <label for="pass">Password</label>
-                <input type="password" class="input-field" name="password" id="password" required>
+                <input type="password" class="input-field" name="password" id="password">
                 <i class="bx bx-lock"></i>
             </div>
             <div class="input-box">

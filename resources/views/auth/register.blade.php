@@ -7,19 +7,20 @@
         <div class="header">
             <p>Registeration for Riversky</p>
         </div>
-        <form action="" method="post">
+        <form action="{{route('register.post')}}" method="post">
+            @csrf
             <div class="input-box">
                 <label for="Username">Username</label>
-                <input type="text" class="input-field" name="username" id="username" placeholder="username" required>
+                <input type="text" class="input-field" name="username" id="username" placeholder="username">
                 <i class="bx bx-envelope"></i>
             </div>
             <div class="input-box">
                 <label for="Email">Email address</label>
-                <input type="email" class="input-field" name="email" id="email" placeholder="name@gmail.com" required>
+                <input type="email" class="input-field" name="email" id="email" placeholder="name@gmail.com">
             </div>
             <div class="input-box">
                 <label for="Password">Password</label>
-                <input type="password" class="input-field" name="password" id="password" placeholder="password" required>
+                <input type="password" class="input-field" name="password" id="password" placeholder="password">
                 <i class="bx bx-lock"></i>
             </div>
             <div class="input-box">
