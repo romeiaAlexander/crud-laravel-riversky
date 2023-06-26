@@ -13,19 +13,20 @@ class RegisterController extends Controller
     }
 
     function registerPost(Request $request){
-        $request->validate([
-            'username'  => 'required',
-            'email'     => 'required|email|unique:users',
-            'password'  => 'required'
+        $user             = User::create([
+            'username'    => $request->username,
+            'email'       => $request->email,
+            'password'    => Hash::make($request->password),
         ]);
 
-        $data['name']       = $request->username;
-        $data['email']      = $request->email;
-        $data['password']   = Hash::make($request->password);
-        $user               = User::create($data);
-        if(!$user){
-            return redirect(route('register'))->with("error", "Registerasi gagal");
+        if($user){
+            session()->flash("success", "Register Success");
+
+            return redirect("/login");
+        }else{
+            session()->flash("error", "Register Failed!");
+
+            return back();
         }
-        return redirect(route('login'))->with("success", "Registerasi sukses");
     }
 }

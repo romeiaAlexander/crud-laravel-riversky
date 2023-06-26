@@ -7,7 +7,12 @@
         <div class="header">
             <p>Registeration for Riversky</p>
         </div>
-        <form action="{{route('register.post')}}" method="post">
+        @if (Session::has('success'))
+            <div class="alert alert-success" role="alert">
+                {{ Session::get('success') }}
+            </div>
+        @endif
+        <form action="{{route('register.post')}}" method="POST">
             @csrf
             <div class="input-box">
                 <label for="Username">Username</label>
@@ -22,6 +27,9 @@
                 <label for="Password">Password</label>
                 <input type="password" class="input-field" name="password" id="password" placeholder="password">
                 <i class="bx bx-lock"></i>
+            </div>
+            <div class="input-box">
+                <span><a href="{{route('login')}}">saya sudah punya akun</a></span>
             </div>
             <div class="input-box">
                 <input type="submit" name="submit" class="input-submit" value="Login">

@@ -12,27 +12,30 @@ class LoginController extends Controller
         if(Auth::check()){
             return redirect()->route('index');
         }
-        return view('auth.login');
+        return view('auth/login');
     }
 
     public function loginPost(Request $request){
-        $validator = Validator::make($request->all(),[
-            'name'      => 'require',
-            'password'  => 'required'
+        $validator  = validator::make($request->all(),[
+            'username' => 'required',
+            'password' => 'required'
         ]);
 
-        if(Auth::attempt(['name' => $request->name, 'password' => $request->password])){
+        if(Auth::attempt(['username' => $request->username, 'password' => $request->password])){
             $request->session()->regenerate();
 
             return redirect()->route('index');
         }
-        return redirect()->back()->with('error', "nama atau password salah");
+        return redirect()->back()->with('error', 'username atau password salah');
     }
 
     public function logout(Request $request){
         Auth::logout();
+
         $request->session()->invalidate();
+
         $request->session()->regenerateToken();
+
         return redirect()->route('login');
     }
 }

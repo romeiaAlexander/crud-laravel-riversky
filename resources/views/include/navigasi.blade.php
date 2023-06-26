@@ -21,12 +21,8 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <div class="d-flex mx-auto flex-column flex-lg-row align-items-center">
                             <ul class="navbar-nav  ">
-                                <li class="nav-item active">
-                                    <a class="nav-link" href="{{ route('login') }}">Login</a>
-                                </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}"> Registerasi
-                                    </a>
+                                    <a class="nav-link" href="{{ route('logout') }}"> Logout</a>
                                 </li>
                             </ul>
                         </div>
