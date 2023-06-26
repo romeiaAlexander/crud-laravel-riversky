@@ -72,14 +72,6 @@
             </div>
         </div>
     </div>
-    <div class="carousel_btn-container">
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="sr-only">Next</span>
-        </a>
-    </div>
 </div>
 </section>
 <!-- end slider section -->
