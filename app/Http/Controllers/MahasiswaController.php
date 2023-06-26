@@ -13,7 +13,7 @@ class MahasiswaController extends Controller
     public function index()
     {
         $mahasiswa = Mahasiswa::orderBy('nim', 'DESC')->get();
-        return view('main/main', compact('mahasiswa'));
+        return view('main/main', compact('mahasiswas'));
     }
 
     /**
