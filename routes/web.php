@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
     Route::get('main', [PageController::class, 'main'])->name('main');
 
     Route::group(['prefix' => 'mahasiswa'], function () {
-        Route::get('', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
+        Route::get('/main', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
         Route::get('create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
         Route::get('edit/{id}', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
         Route::post('store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');

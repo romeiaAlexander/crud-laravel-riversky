@@ -5,9 +5,9 @@
 <div class="d-flex align-items-center justify-content-between">
     <h1 class="mb-0">List Product</h1>
     <!-- Button to trigger the modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahMahasiswa">
-            Add Mahasiswa
-        </button>
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahMahasiswa">
+        Add Mahasiswa
+    </button>
 </div>
 <hr />
 @if(Session::has('success'))
@@ -26,9 +26,20 @@
         </tr>
     </thead>
     <tbody>
+        @foreach ($mahasiswa as $row)
+            <tr>
+                <td>{{$loop->iteration}}</td>
+                <td>{{$row->nama}}</td>
+                <td>{{$row->nim}}</td>
+                <td>{{$row->kelamin}}</td>
+                <td>
+                    <a href="#" class="btn btn-primary edit-btn" data-toggle="modal" data-target="#editModal">Edit</a>
+                </td>
+                <td>
+                    <a href="#" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Hapus</a>
+                </td>
+            </tr>
+        @endforeach
     </tbody>
 </table>
-
-
-
 @endsection
