@@ -5,8 +5,9 @@
 <div class="d-flex align-items-center justify-content-between">
     <h1 class="mb-0">List Product</h1>
     <!-- Button to trigger the modal -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahMahasiswa">Add Mahasiswa</button>
-
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahMahasiswa">
+            Add Mahasiswa
+        </button>
 </div>
 <hr />
 @if(Session::has('success'))

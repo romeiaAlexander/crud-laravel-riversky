@@ -17,32 +17,30 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::controller(LoginController::class)->group(function (){
-    Route::get('login', 'login')->name('login');
-    Route::post('login', 'loginPost')->name('login.post');
+Route::group([], function () {
+    Route::get('login', [LoginController::class, 'login'])->name('login');
+    Route::post('login', [LoginController::class, 'loginPost'])->name('login.post');
 });
 
-Route::controller(RegisterController::class)->group(function(){
-    Route::get('register', 'register')->name('register');
-    Route::post('register', 'registerPost')->name('register.post');
+Route::group([], function () {
+    Route::get('register', [RegisterController::class, 'register'])->name('register');
+    Route::post('register', [RegisterController::class, 'registerPost'])->name('register.post');
 });
 
-Route::controller(PageController::class)->group(function(){
-    Route::get('/', 'index')->name('index');
+Route::group([], function () {
+    Route::get('', [PageController::class, 'index'])->name('index');
 });
 
-Route::middleware('auth')->group(function(){
+Route::middleware('auth')->group(function () {
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('main', [PageController::class, 'main'])->name('main');
 
-    Route::controller(MahasiswaController::class)->group(function(){
-        Route::get('', 'index')->name('mahasiswa.index');
-        Route::get('', 'create')->name('mahasiswa.create');
-        Route::get('main/{id}', 'edit')->name('mahasiswa.edit');
-        Route::post('', 'store')->name('mahasiswa.store');
-        Route::put('main/{id}', 'update')->name('mahasiswa.update');
-        Route::delete('main/{id}','destroy')->name('mahasiswa.destroy');
-
-        //
+    Route::group(['prefix' => 'mahasiswa'], function () {
+        Route::get('', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
+        Route::get('create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
+        Route::get('edit/{id}', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
+        Route::post('store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
+        Route::put('update/{id}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
+        Route::delete('destroy/{id}', [MahasiswaController::class, 'destroy'])->name('mahasiswa.destroy');
     });
 });
