@@ -10,7 +10,7 @@ class LoginController extends Controller
 {
     public function login(){
         if(Auth::check()){
-            return redirect()->route('index');
+            return redirect()->route('main');
         }
         return view('auth/login');
     }
@@ -24,7 +24,7 @@ class LoginController extends Controller
         if(Auth::attempt(['username' => $request->username, 'password' => $request->password])){
             $request->session()->regenerate();
 
-            return redirect()->route('index');
+            return redirect()->route('main');
         }
         return redirect()->back()->with('error', 'username atau password salah');
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 
 class MahasiswaController extends Controller
@@ -11,7 +12,8 @@ class MahasiswaController extends Controller
      */
     public function index()
     {
-        //
+        $mahasiswa = Mahasiswa::orderBy('nim', 'DESC')->get();
+        return view('main/main', compact('mahasiswa'));
     }
 
     /**
@@ -19,7 +21,7 @@ class MahasiswaController extends Controller
      */
     public function create()
     {
-        //
+        return view('main/main');
     }
 
     /**
@@ -27,15 +29,19 @@ class MahasiswaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Mahasiswa::create($request->all());
+        return back()->with('success', 'data telah ditambahkan');
     }
 
     /**
+     * Remove the specified resource from storage
+     * 
      * Display the specified resource.
      */
     public function show(string $id)
     {
-        //
+        $mahasiswa = Mahasiswa::findOrFail($id);
+        return view(back(), compact('mahasiswa'));
     }
 
     /**
@@ -43,7 +49,8 @@ class MahasiswaController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $mahasiswa = Mahasiswa::findOrFail($id);
+        return view(back(), compact('mahasiswa'));
     }
 
     /**
@@ -51,7 +58,9 @@ class MahasiswaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $mahasiswa = Mahasiswa::findOrFail($id);
+        $mahasiswa->update($request->all());
+        return back()->with('success', 'berhasil di update');
     }
 
     /**
@@ -59,6 +68,8 @@ class MahasiswaController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $mahasiswa = Mahasiswa::findOrFail($id);
+        $mahasiswa->delete();
+        return back()->with('success','sukses hapus data');
     }
 }

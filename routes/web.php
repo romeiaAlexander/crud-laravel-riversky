@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
@@ -33,4 +34,15 @@ Route::controller(PageController::class)->group(function(){
 Route::middleware('auth')->group(function(){
     Route::get('logout', [LoginController::class, 'logout'])->name('logout');
     Route::get('main', [PageController::class, 'main'])->name('main');
+
+    Route::controller(MahasiswaController::class)->group(function(){
+        Route::get('', 'index')->name('mahasiswa.index');
+        Route::get('', 'create')->name('mahasiswa.create');
+        Route::get('main/{id}', 'edit')->name('mahasiswa.edit');
+        Route::post('', 'store')->name('mahasiswa.store');
+        Route::put('main/{id}', 'update')->name('mahasiswa.update');
+        Route::delete('main/{id}','destroy')->name('mahasiswa.destroy');
+
+        //
+    });
 });
