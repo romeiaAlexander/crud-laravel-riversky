@@ -26,20 +26,26 @@
         </tr>
     </thead>
     <tbody>
-        @foreach ($mahasiswa as $row)
+        @forelse ($mahasiswa as $row)
             <tr>
-                <td>{{$loop->iteration}}</td>
-                <td>{{$row->nama}}</td>
-                <td>{{$row->nim}}</td>
-                <td>{{$row->kelamin}}</td>
+                <th scope="row">{{ $loop->iteration }}</th>
+                <td>{{ $row->nama }}</td>
+                <td>{{ $row->nim }}</td>
+                <td>{{ $row->kelamin }}</td>
                 <td>
-                    <a href="#" class="btn btn-primary edit-btn" data-toggle="modal" data-target="#editModal">Edit</a>
-                </td>
-                <td>
-                    <a href="#" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Hapus</a>
+                    <a href="{{ route('mahasiswa.edit',  $row->id) }}" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#editMahasiswa">Edit</a>
+                    <form action="{{ route('mahasiswa.destroy', $row->id) }}" method="POST" style="display: inline-block;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Hapus</button>
+                    </form>
                 </td>
             </tr>
-        @endforeach
+        @empty
+            <tr>
+                <td colspan="5">No records found.</td>
+            </tr>
+        @endforelse
     </tbody>
 </table>
 @endsection
