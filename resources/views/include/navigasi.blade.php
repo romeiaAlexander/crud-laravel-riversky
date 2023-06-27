@@ -28,49 +28,17 @@
                         </div>
                         <div class="quote_btn-container ">
                             <a href="">
-                                <img src="{{ asset('assets/images/call.png') }}" alt="">
+                                <img src="{{ asset('assets/images/logoangkatan.png') }}" alt="">
                                 <span>
-                                    Call : + 62 815-2619-0671
+                                    {{ auth()->user()->username }}
                                 </span>
                             </a>
-                            <form class="form-inline">
-                                <button class="btn  my-2 my-sm-0 nav_search-btn" type="submit"></button>
-                            </form>
                         </div>
                     </div>
                 </nav>
             </div>
         </header>
         <!-- end header section -->
-
-        <div class="carousel-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 ">
-                        <div class="detail_box">
-                            <h1>
-                                Kunjungi Kami
-                            </h1>
-                            <p>
-                                Program Studi Sistem Informasi Jl. Fakultas MIPA UNSRAT,<br>
-                                Kleak, Kec. Malalayang, Kota Manado, Prov. Sulawesi Utara<br>
-                                Kode Pos 95115
-                            </p>
-                            <div class="btn-box">
-                                <a href="" class="btn-1">
-                                    Contact Us
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="img-box">
-                            <img src="assets/images/gambar3.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 </section>

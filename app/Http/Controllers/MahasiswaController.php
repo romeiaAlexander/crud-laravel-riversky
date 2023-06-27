@@ -13,7 +13,7 @@ class MahasiswaController extends Controller
     public function index()
     {
         $mahasiswa = Mahasiswa::orderBy('nim', 'DESC')->get();
-        return view('main/main', compact('mahasiswas'));
+        return view('main/main', compact('mahasiswa'));
     }
 
     /**
@@ -41,7 +41,7 @@ class MahasiswaController extends Controller
     public function show(string $id)
     {
         $mahasiswa = Mahasiswa::findOrFail($id);
-        return view(back(), compact('mahasiswa'));
+        return view('main/main', compact('mahasiswa'));
     }
 
     /**
@@ -50,7 +50,7 @@ class MahasiswaController extends Controller
     public function edit(string $id)
     {
         $mahasiswa = Mahasiswa::findOrFail($id);
-        return view(back(), compact('mahasiswa'));
+        return view('main/main', compact('mahasiswa'));
     }
 
     /**

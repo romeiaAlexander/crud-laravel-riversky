@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -11,6 +12,7 @@ class PageController extends Controller
     }
 
     public function main(){
-        return view('main/main');
+        $mahasiswa = Mahasiswa::orderBy('nim', 'DESC')->get();
+        return view('main.main', compact('mahasiswa'));
     }
 }

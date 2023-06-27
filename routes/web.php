@@ -37,10 +37,10 @@ Route::middleware('auth')->group(function () {
 
     Route::group(['prefix' => 'mahasiswa'], function () {
         Route::get('/main', [MahasiswaController::class, 'index'])->name('mahasiswa.index');
-        Route::get('create', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
-        Route::get('edit/{id}', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
-        Route::post('store', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
-        Route::put('update/{id}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
-        Route::delete('destroy/{id}', [MahasiswaController::class, 'destroy'])->name('mahasiswa.destroy');
+        Route::get('/main', [MahasiswaController::class, 'create'])->name('mahasiswa.create');
+        Route::get('/main/{id}', [MahasiswaController::class, 'edit'])->name('mahasiswa.edit');
+        Route::post('/main', [MahasiswaController::class, 'store'])->name('mahasiswa.store');
+        Route::put('/main/{id}', [MahasiswaController::class, 'update'])->name('mahasiswa.update');
+        Route::delete('/main/{id}', [MahasiswaController::class, 'destroy'])->name('mahasiswa.destroy');
     });
 });
